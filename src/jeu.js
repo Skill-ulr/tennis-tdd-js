@@ -17,6 +17,9 @@ export class Jeu {
   }
 
   score() {
+    if (this.pointsJ1 === 3 && this.pointsJ2 === 3) {
+      return "Égalité";
+    }
     if (this.pointsJ1 === this.pointsJ2 && this.pointsJ1 > 0) {
       return `${this.nomsDesPoints[this.pointsJ1]}-A`;
     }
