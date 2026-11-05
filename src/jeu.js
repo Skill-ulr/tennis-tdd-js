@@ -17,6 +17,9 @@ export class Jeu {
   }
 
   score() {
+    if (this.pointsJ1 === this.pointsJ2 && this.pointsJ1 > 0) {
+      return `${this.nomsDesPoints[this.pointsJ1]}-A`;
+    }
     const scoreJ1 = this.nomsDesPoints[this.pointsJ1];
     const scoreJ2 = this.nomsDesPoints[this.pointsJ2];
     return `${scoreJ1}-${scoreJ2}`;
