@@ -31,3 +31,12 @@ test('À 3 partout (40-40), le score est Égalité', () => {
   jeu.pointPour("Bob");
   expect(jeu.score()).toBe("Égalité");
 });
+
+test('Alice gagne le match au 4ème point', () => {
+  const jeu = new Jeu("Alice", "Bob", fauxClassement);
+  jeu.pointPour("Alice");
+  jeu.pointPour("Alice");
+  jeu.pointPour("Alice");
+  jeu.pointPour("Alice");
+  expect(jeu.score()).toBe("Victoire Alice");
+});
