@@ -1,4 +1,4 @@
-import { test, expect } from 'vitest';
+import { test, expect, vi } from 'vitest';
 import { Jeu } from '../src/jeu.js';
 
 const fauxClassement = { enregistrer: () => {} };
@@ -39,4 +39,17 @@ test('Alice gagne le match au 4ème point', () => {
   jeu.pointPour("Alice");
   jeu.pointPour("Alice");
   expect(jeu.score()).toBe("Victoire Alice");
+});
+
+test('Enregistre le résultat dans le classement lors de la victoire', () => {
+  const espionClassement = { enregistrer: vi.fn() };
+  const jeu = new Jeu("Alice", "Bob", espionClassement);
+
+  jeu.pointPour("Alice");
+  jeu.pointPour("Alice");
+  jeu.pointPour("Alice");
+  jeu.pointPour("Alice");
+
+  expect(espionClassement.enregistrer).toHaveBeenCalledTimes(1);
+  expect(espionClassement.enregistrer).toHaveBeenCalledWith("Alice", "Bob");
 });
