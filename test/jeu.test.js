@@ -13,3 +13,10 @@ test('Alice marque un point, le score est Quinze-Zéro', () => {
   jeu.pointPour("Alice");
   expect(jeu.score()).toBe("Quinze-Zéro");
 });
+
+test('À 1 partout, le score est Quinze-A', () => {
+  const jeu = new Jeu("Alice", "Bob", fauxClassement);
+  jeu.pointPour("Alice");
+  jeu.pointPour("Bob");
+  expect(jeu.score()).toBe("Quinze-A");
+});
