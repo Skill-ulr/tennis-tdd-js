@@ -17,6 +17,12 @@ export class Jeu {
   }
 
   score() {
+    if (this.pointsJ1 === 4) {
+      return `Victoire ${this.joueur1}`;
+    }
+    if (this.pointsJ2 === 4) {
+      return `Victoire ${this.joueur2}`;
+    }
     if (this.pointsJ1 === 3 && this.pointsJ2 === 3) {
       return "Égalité";
     }
