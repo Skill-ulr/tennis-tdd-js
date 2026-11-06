@@ -11,8 +11,14 @@ export class Jeu {
   pointPour(joueur) {
     if (joueur === this.joueur1) {
       this.pointsJ1 = this.pointsJ1 + 1;
+      if (this.pointsJ1 === 4) {
+        this.classement.enregistrer(this.joueur1, this.joueur2);
+      }
     } else if (joueur === this.joueur2) {
       this.pointsJ2 = this.pointsJ2 + 1;
+      if (this.pointsJ2 === 4) {
+        this.classement.enregistrer(this.joueur2, this.joueur1);
+      }
     }
   }
 
