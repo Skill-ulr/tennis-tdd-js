@@ -1,0 +1,5 @@
+Justification du double test:
+J'ai choisi un Spy (vi.fn()) afin de contrôler les interactions avec le service externe
+sans devoir l'exécuter réellement. 
+Cela permet de valider de manière simple que la méthode enregistrer n'est appelée qu'une
+unique fois à la fin du jeu, avec les joueurs passés dans le bon ordre (vainqueur puis perdant).
